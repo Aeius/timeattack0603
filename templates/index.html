@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'main' %}">
+    {% csrf_token %}
+    {% for category in categorys %}
+    <label><input type="radio" name="category" value="{{ category.pk }}"> {{ category.category_name }}</label>
+    {% endfor %}
+    <p><input type="submit" value="OK"> </p>
+</form>
+{% if drinks %}
+{% for drink in drinks %}
+<p>{{ drink }}</p>
+{% endfor %}
+{% endif %}
+</body>
+</html>
